@@ -1,14 +1,8 @@
-# Onefootball 自动任务系统
+# Onefootball 自动任务签到
 
-这是一个用于自动完成 Onefootball 每日任务和签到的 Python 脚本。支持多账户、代理和定时执行。
-
-## 功能特点
-
-- ✨ 多账户并发处理
-- 🔄 自动任务完成
-- ⏰ 定时签到（每12小时）
-- 🌐 代理支持
-- 📝 详细日志记录
+-  多账户并发处理
+-  自动任务完成
+-  定时签到（每12小时）
 
 ## 安装步骤
 
@@ -22,6 +16,7 @@ pip install -r requirements.txt
 ## 配置文件
 
 ### accounts.txt
+(token获取方式，在浏览器中Ctrl+Shift+I或者F12,在Application>LocalStorage>AuthUserKey)
 存放账户令牌，每行一个令牌。格式：
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxx...
@@ -38,14 +33,19 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.yyy...
 ## 使用方法
 
 1. 运行脚本：
+
+建议先创建虚拟环境
+```bash
+python -m venv venv
+```
 ```bash
 python onefootball_checkin.py
 ```
 
 2. 选择操作：
-   - 1️⃣ 完成所有任务：立即执行所有账户的全部任务
-   - 2️⃣ 启动定时签到：每12小时自动执行一次签到
-   - 3️⃣ 退出程序
+   - 1️ 完成所有任务：立即执行所有账户的全部任务（先要在网页授权下x）
+   - 2️ 启动定时签到：每12小时自动执行一次签到
+   - 3️ 退出程序
 
 ## 日志说明
 
@@ -54,28 +54,3 @@ python onefootball_checkin.py
 - ✗ 表示任务失败
 - 详细错误信息会记录在日志中
 
-## 注意事项
-
-1. 请确保 `accounts.txt` 中的令牌格式正确
-2. 如果使用代理，确保代理可用且格式正确
-3. 建议使用虚拟环境运行脚本
-4. 如遇到连接问题，可以尝试更换代理或调整延迟设置
-
-## 常见问题
-
-Q: 如何获取账户令牌？
-A: 从浏览器开发者工具的 Network 标签页中获取，查找 Authorization 头部。
-
-Q: 支持哪些代理格式？
-A: 主要支持 SOCKS5 代理，格式为 `ip:port`。
-
-Q: 如何停止定时任务？
-A: 按 Ctrl+C 可以安全地停止程序。
-
-## 更新日志
-
-### v1.0.0
-- 初始版本发布
-- 支持多账户处理
-- 添加代理支持
-- 实现定时签到功能
